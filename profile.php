@@ -21,12 +21,18 @@ $user = $stmt->get_result()->fetch_assoc();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil User</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style/profile.css">
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="text-center">Profile</h1>
-        <p class="text-center">Selamat datang, <?= $user['nama']; ?>!</p>
-        <div class="card mx-auto" style="max-width: 600px;">
+        <div class="profile-header">
+            <img src="./images/user.webp" alt="User Avatar">
+            <h2 class="mt-3"><?= $user['nama']; ?></h2>
+            <p class="mb-0">@<?= $user['username']; ?></p>
+        </div>
+        <br>
+        <div class="card mx-auto mt-5 profile-card" style="max-width: 600px;">
             <div class="card-body">
                 <h5 class="card-title text-center">Informasi Profil</h5>
                 <table class="table">
@@ -42,17 +48,21 @@ $user = $stmt->get_result()->fetch_assoc();
                         <th>Email</th>
                         <td><?= $user['email'] ?></td>
                     </tr>
-                    <tr>
-                        <th>Role</th>
-                        <td><?= $user['role'] ?></td>
-                    </tr>
                 </table>
+                
+                <div class="d-flex justify-content-between mt-4">
+                    <a href="logout.php" class="btn btn-danger">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                    <a href="./chat/chat.php" class="btn btn-success">
+                        <i class="fas fa-comments"></i> Chat
+                    </a>
+                    
+                </div>
             </div>
-        </div>
-         <div class="d-flex justify-content-center mt-3">
-            <a href="logout.php" class="btn btn-danger mb-3">Logout</a>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 </body>
 </html>

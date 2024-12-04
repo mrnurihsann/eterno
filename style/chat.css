@@ -1,0 +1,104 @@
+body {
+  background-color: #f4f7fa;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+}
+
+.chat-box {
+  max-height: 500px;
+  overflow-y: scroll;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.message {
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 15px;
+  max-width: 75%;
+  word-wrap: break-word;
+}
+
+.sent {
+  background-color: #85e885;
+  align-self: flex-end;
+  text-align: right;
+  border-radius: 15px 15px 0 15px;
+}
+
+.received {
+  background-color: #baedba;
+  align-self: flex-start;
+  text-align: left;
+  border-radius: 15px 15px 15px 0;
+}
+
+.timestamp {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 5px;
+}
+
+.user-name {
+  font-weight: bold;
+  color: #343a40;
+}
+
+.contact-list a {
+  display: block;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background-color: #85e885;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.contact-list a:hover {
+  background-color: #2fb72f;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contact-list a:active {
+  background-color: #c1e3c1;
+}
+
+.btn-primary {
+  background-color: #28a745;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #218838;
+}
+
+.btn-primary:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.chat-header {
+  margin-bottom: 20px;
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.form-control {
+  border-radius: 15px;
+  box-shadow: none;
+}

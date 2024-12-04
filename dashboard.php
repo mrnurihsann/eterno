@@ -23,7 +23,7 @@ $result = $conn->query($query);
 </head>
 <body class="light-theme">
     <header>
-        <div class="theme-toggler">
+        <div class="theme-toggler p-2">
             <span class="material-icons-sharp active">light_mode</span>
             <span class="material-icons-sharp">dark_mode</span>
         </div>

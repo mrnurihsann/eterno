@@ -11,6 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
+
+        $_SESSION['id'] = $user['id'];
         $_SESSION['username'] = $user['username'];
         $_SESSION['role'] = $user['role'];
 
@@ -36,9 +38,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 <body>
     
-    <?php if (isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
+    
 <form class="form" method="POST" action="">
     <h2>Sign In</h2>
+    <?php if (isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
     <div class="flex-column">
       <label for="username">Username </label></div>
       <div class="inputForm">

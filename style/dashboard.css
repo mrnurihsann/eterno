@@ -13,7 +13,6 @@ body.light-theme .table-dark {
   color: #ffffff;
 }
 
-/* Dark Theme */
 body.dark-theme {
   background-color: #121212;
   color: #ffffff;
@@ -29,7 +28,6 @@ body.dark-theme .table-dark {
   color: #ffffff;
 }
 
-/* Theme toggler styling */
 .theme-toggler {
   display: flex;
   justify-content: center;
