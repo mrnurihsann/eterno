@@ -5,5 +5,8 @@ Dashboard admin
 ![image](https://github.com/user-attachments/assets/f2f98c1f-d33a-49e9-b7a5-9ce998e2bab9)
 
 Profile user
-![image](https://github.com/user-attachments/assets/6636679d-c2e3-4aad-ab17-75f762e12b1c)
+![image](https://github.com/user-attachments/assets/41f6c2a1-9c95-4bd4-8a00-cb444e91e7d7)
+
+Fitur chat
+![image](https://github.com/user-attachments/assets/223c7015-af46-4ece-8896-23bc91a75fa8)
 
