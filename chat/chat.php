@@ -74,6 +74,7 @@ if (isset($_GET['receiver_id'])) {
     <link rel="stylesheet" href="../style/chat.css">
 </head>
 <body>
+     <?php include '../partials/navbar.html'; ?>
 <div class="container mt-5">
     <h2 class="text-center chat-header">Chat Room</h2>
 

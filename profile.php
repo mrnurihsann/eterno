@@ -48,11 +48,18 @@ $user = $stmt->get_result()->fetch_assoc();
                         <th>Email</th>
                         <td><?= $user['email'] ?></td>
                     </tr>
+                    <tr>
+                        <th>Saldo</th>
+                        <td><?= $user['saldo'] ?></td>
+                    </tr>
                 </table>
                 
                 <div class="d-flex justify-content-between mt-4">
                     <a href="logout.php" class="btn btn-danger">
                         <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                    <a href="./topup/topup.php" class="btn btn-primary">
+                        <i class="fas fa-wallet"></i> Top Up Dana
                     </a>
                     <a href="./chat/chat.php" class="btn btn-success">
                         <i class="fas fa-comments"></i> Chat
