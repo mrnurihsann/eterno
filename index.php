@@ -1,29 +1,46 @@
 <?php
+// Memulai session untuk melacak status login pengguna
 session_start();
+
+// Menyertakan file koneksi ke database
 require 'db.php';
 
+// Mengecek apakah request yang diterima adalah metode POST, yang berarti formulir login telah disubmit
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Mengambil data username dan password dari input formulir
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+    // Membuat query untuk mencocokkan username dan password yang dimasukkan dengan data di database
+    // Query ini rentan terhadap SQL Injection karena langsung menggabungkan input ke dalam query SQL
     $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
+
+    // Menjalankan query pada database
     $result = $conn->query($query);
 
+    // Mengecek apakah ada baris hasil dari query, yang berarti username dan password cocok
     if ($result->num_rows > 0) {
+        // Jika ada, mengambil data pengguna yang sesuai
         $user = $result->fetch_assoc();
 
-        $_SESSION['id'] = $user['id'];
-        $_SESSION['username'] = $user['username'];
-        $_SESSION['role'] = $user['role'];
+        // Menyimpan data pengguna ke dalam session untuk digunakan di halaman lain
+        // Session ini akan membantu kita untuk melacak pengguna yang sedang login
+        $_SESSION['id'] = $user['id'];  // Menyimpan ID pengguna dalam session
+        $_SESSION['username'] = $user['username'];  // Menyimpan username pengguna dalam session
+        $_SESSION['role'] = $user['role'];  // Menyimpan role pengguna (admin/user) dalam session
 
+        // Mengecek role pengguna untuk mengarahkan mereka ke halaman yang sesuai
         if ($user['role'] == 'admin') {
+            // Jika pengguna adalah admin, arahkan ke halaman dashboard
             header("Location: dashboard.php");
         } else {
+            // Jika pengguna adalah user biasa, arahkan ke halaman profil
             header("Location: profile.php");
         }
-        exit;
+        exit;  // Menghentikan eksekusi lebih lanjut setelah pengalihan halaman
     } else {
-        $error = "Username atau password salah!";
+        // Jika username atau password salah, tampilkan pesan error
+        $error = "Username atau password salah!";  // Pesan error jika login gagal
     }
 }
 ?>

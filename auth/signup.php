@@ -1,29 +1,38 @@
 <?php
-// Memulai sesi
+// Memulai sesi untuk menyimpan data session, misalnya untuk pengguna yang login
 session_start();
+
+// Menyertakan file koneksi ke database
 require '../db.php';
 
-// Cek apakah form sudah disubmit
+// Mengecek apakah form telah disubmit menggunakan metode POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $nama = $_POST['nama'];
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $password = $_POST['password']; // Hash password
-    $alamat = $_POST['alamat'];
-    $role = 'user'; // Role default, bisa disesuaikan
+    // Mengambil nilai yang dikirimkan dari form untuk masing-masing field
+    $nama = $_POST['nama']; // Nama pengguna
+    $username = $_POST['username']; // Username yang diinginkan pengguna
+    $email = $_POST['email']; // Email pengguna
+    $password = $_POST['password']; // Password pengguna
+    $alamat = $_POST['alamat']; // Alamat pengguna
+    $role = 'user'; // Menetapkan role pengguna sebagai 'user' secara default, bisa disesuaikan jika diperlukan
 
-    // Query untuk menyimpan data pengguna baru
+    // Menyusun query SQL untuk menyimpan data pengguna baru ke dalam tabel 'users'
+    // **Catatan**: Ini tidak menggunakan prepared statements, yang bisa berisiko terhadap serangan SQL Injection.
     $sql = "INSERT INTO users (nama, username, email, password, alamat, role) 
             VALUES ('$nama', '$username', '$email', '$password', '$alamat', '$role')";
 
+    // Mengeksekusi query SQL untuk menyimpan data pengguna baru ke database
+    // Jika eksekusi query berhasil
     if ($conn->query($sql) === TRUE) {
-        // Setelah berhasil register, arahkan ke halaman login
+        // Setelah berhasil, mengarahkan pengguna ke halaman login (index.php)
         header("Location: ../index.php");
-        exit();
+        exit(); // Menghentikan eksekusi lebih lanjut setelah pengalihan
     } else {
+        // Jika terjadi kesalahan saat eksekusi query, tampilkan pesan error
+        // Pesan ini berisi query yang gagal dan penjelasan dari error
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 }
+
 
 $conn->close();
 ?>
