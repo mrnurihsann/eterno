@@ -65,13 +65,13 @@ Aplikasi ini adalah sistem manajemen berbasis website yang dikembangkan mengguna
    - Letakkan file proyek di dalam folder htdocs atau direktori server lokal Anda.
    - Akses aplikasi melalui http://localhost/namaprojek.
 
-🚀 **Fitur yang Akan Datang**
+## 🚀 Fitur yang Akan Datang
    - Implementasi fitur notifikasi transaksi.
    - Sistem laporan untuk admin.
    - Desain antarmuka yang lebih responsif.
    - Log chat dashboard admin
 
-🤝 Kontribusi
+## 🤝 Kontribusi
 Kami menerima kontribusi dari komunitas. Jika Anda memiliki ide atau menemukan bug, silakan buat issue atau kirimkan pull request.
 
 
